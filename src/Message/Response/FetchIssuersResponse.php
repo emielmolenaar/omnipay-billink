@@ -22,6 +22,7 @@ class FetchIssuersResponse extends AbstractBillinkResponse implements FetchIssue
         }
 
         $issuers = [];
+
         foreach ($this->data['issuers'] as $issuer) {
             $issuers[] = new Issuer($issuer['id'], $issuer['name'], $this->data['id']);
         }
