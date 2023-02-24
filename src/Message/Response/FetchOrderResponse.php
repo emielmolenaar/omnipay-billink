@@ -2,7 +2,9 @@
 
 namespace Omnipay\Billink\Message\Response;
 
-class CreateOrderResponse extends AbstractBillinkResponse
+use App\Support\Arr;
+
+class FetchOrderResponse extends AbstractBillinkResponse
 {
     public function isSuccessful()
     {
@@ -11,8 +13,8 @@ class CreateOrderResponse extends AbstractBillinkResponse
         return isset($this->data['MSG']['CODE']) && (int) $this->data['MSG']['CODE'] === 200;
     }
 
-    public function getTransactionReference()
+    public function getStatus()
     {
-        return $this->request->getOrderNumber();
+        return Arr::first($this->data['MSG']['INVOICES'])['STATUS'];
     }
 }

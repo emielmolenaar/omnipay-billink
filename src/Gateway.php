@@ -5,6 +5,7 @@ namespace Omnipay\Billink;
 use Omnipay\Billink\Message\Request\CreateOrderRequest;
 use Omnipay\Billink\Message\Request\CustomerCreditWorthinessRequest;
 use Omnipay\Billink\Message\Request\FetchIssuersRequest;
+use Omnipay\Billink\Message\Request\FetchOrderRequest;
 use Omnipay\Billink\Message\Request\FetchPaymentMethodsRequest;
 use Omnipay\Billink\Traits\DefaultParameters;
 use Omnipay\Common\AbstractGateway;
@@ -51,5 +52,10 @@ class Gateway extends AbstractGateway
     public function createOrder(array $parameters = []): CreateOrderRequest
     {
         return $this->createRequest(CreateOrderRequest::class, $parameters);
+    }
+
+    public function fetchOrder(array $parameters = []): FetchOrderRequest
+    {
+        return $this->createRequest(FetchOrderRequest::class, $parameters);
     }
 }

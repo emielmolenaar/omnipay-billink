@@ -119,7 +119,7 @@ abstract class AbstractBillinkRequest extends AbstractRequest
     protected function checkApiResponseForErrors(array $result): array
     {
         if (isset($result['RESULT']) and $result['RESULT'] === 'ERROR') {
-            throw new Exception('Billink: ' . $result['ERROR']['DESCRIPTION']);
+            // throw new Exception('Billink: ' . $result['ERROR']['DESCRIPTION']);
         }
 
         return $result;
