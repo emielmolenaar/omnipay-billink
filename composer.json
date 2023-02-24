@@ -1,0 +1,42 @@
+{
+    "name": "omnipay/billink",
+    "type": "library",
+    "description": "Billink driver for the Omnipay payment processing library",
+    "keywords": [
+        "gateway",
+        "merchant",
+        "billink",
+        "omnipay",
+        "pay",
+        "payment"
+    ],
+    "homepage": "https://github.com/emielmolenaar/omnipay-billink",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Omnipay Contributors",
+            "homepage": "https://github.com/emielmolenaar/omnipay-billink/contributors"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Omnipay\\Billink\\" : "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Omnipay\\Billink\\Test\\": "tests/" }
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-simplexml": "*",
+        "spatie/array-to-xml": "^3.0",
+        "omnipay/common": "^3.1"
+    },
+    "require-dev": {
+        "omnipay/tests": "^4.1",
+        "squizlabs/php_codesniffer": "^3"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 src/",
+        "fix-style": "phpcbf -p --standard=PSR2 src/"
+    }
+}
