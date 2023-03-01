@@ -66,7 +66,7 @@ abstract class AbstractBillinkRequest extends AbstractRequest
             /**
              * @var Item $item
              */
-            $total += (float) $item->getGrandTotal();
+            $total += (float) $item->getTotal();
         }
 
         return $total;
