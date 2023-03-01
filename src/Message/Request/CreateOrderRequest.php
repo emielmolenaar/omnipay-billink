@@ -24,7 +24,7 @@ class CreateOrderRequest extends AbstractBillinkRequest
             'currency' => $this->getCurrency(),
             'orderItems' => [
                 'items' => $this->itemBagToBillinkItems($this->getItems()),
-            ]
+            ],
         ];
     }
 
