@@ -13,7 +13,7 @@ class CreateOrderRequest extends AbstractBillinkRequest
 
     public function getData()
     {
-        return [
+        return array_filter([
             'action' => 'Order',
             ...$this->cardToBillinkCustomer($this->getCard()),
             'orderAmount' => $this->getLinesTotal(),
@@ -22,10 +22,11 @@ class CreateOrderRequest extends AbstractBillinkRequest
             'orderNumber' => $this->getOrderNumber(),
             'date' => $this->getDate(),
             'currency' => $this->getCurrency(),
+            'aditionalText' => $this->getAditionalText(),
             'orderItems' => [
                 'items' => $this->itemBagToBillinkItems($this->getItems()),
             ],
-        ];
+        ]);
     }
 
     public function getChamberOfCommerceNumber(): string
@@ -86,6 +87,22 @@ class CreateOrderRequest extends AbstractBillinkRequest
     public function setDate(string $value)
     {
         return $this->setParameter('date', $value);
+    }
+
+    /**
+     * @desc Yes, there is a typo here. But that's how it is in the API.
+     */
+    public function getAditionalText(): string
+    {
+        return $this->getParameter('aditionalText');
+    }
+
+    /**
+     * @desc Yes, there is a typo here. But that's how it is in the API.
+     */
+    public function setAditionalText(string $value)
+    {
+        return $this->setParameter('aditionalText', $value);
     }
 
     public function sendData($data)
