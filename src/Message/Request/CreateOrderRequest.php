@@ -92,7 +92,7 @@ class CreateOrderRequest extends AbstractBillinkRequest
     /**
      * @desc Yes, there is a typo here. But that's how it is in the API.
      */
-    public function getAditionalText(): string
+    public function getAditionalText(): ?string
     {
         return $this->getParameter('aditionalText');
     }
