@@ -24,7 +24,7 @@ trait ItemsToBillinkItems
             'code' => $item->getSku(),
             'description' => $item->getName(),
             'orderQuantity' => $item->getQuantity(),
-            'priceincl' => $item->getGrandTotal(),
+            'priceincl' => $item->getPrice(),
             'btw' => $item->getVat(),
         ];
     }
